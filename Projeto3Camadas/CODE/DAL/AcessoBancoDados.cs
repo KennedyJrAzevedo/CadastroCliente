@@ -93,7 +93,7 @@ namespace Projeto3Camadas.CODE.DAL
 		public MySqlDataReader RetDataReader(string sql)
 		{
 			MySqlCommand comando = new MySqlCommand(sql, conn);
-			MySqlDataReader dr = comando.ExecuteReader();
+			dr = comando.ExecuteReader();
 			dr.Read();
 			return dr;
 		}
