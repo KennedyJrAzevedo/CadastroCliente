@@ -18,7 +18,7 @@ namespace Projeto3Camadas.CODE.DAL
 		private MySqlDataAdapter da;
 		private MySqlDataReader dr;
 		private MySqlCommandBuilder cb;
-
+		
 		private String server = "127.0.0.1";
 		private String user = "root";
 		private String database = "db_projeto3camadas";
@@ -27,7 +27,7 @@ namespace Projeto3Camadas.CODE.DAL
 
 		public void Conectar()
 		{
-			//string connStr = "server=127.0.0.1;user=root;database=DB_Requerimento_Padrao;port=3306;password=root";
+			
 			string connStr = String.Format("server={0}; User Id={1}; database={2}; port={3}; password={4}; pooling=false", server, user, database, port, password);
 			try
 			{

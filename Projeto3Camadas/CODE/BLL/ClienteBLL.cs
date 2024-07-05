@@ -33,7 +33,17 @@ namespace Projeto3Camadas.CODE.BLL
             dataTable = bd.RetDataTable(comando);
             return dataTable;
         }
-        
+
+        public DataTable pesquisa_cliente(String pesquisa)
+        {
+            DataTable dataTable = new DataTable();
+            bd = new AcessoBancoDados();
+            bd.Conectar();
+            string comando = $"call pesquisa_cliente('{pesquisa}');";
+            dataTable = bd.RetDataTable(comando);
+            return dataTable;
+        }
+
         public void excluir(ClienteDTO dto)
         {
             bd.Conectar();

@@ -21,66 +21,103 @@ namespace Projeto3Camadas
             InitializeComponent();
         }
 
-        public void resetacampos()
+        private void resetacampos()
         {
-            txtID.ResetText() ;
+            txtID.ResetText();
             txtNome.ResetText();
             txtEmail.ResetText();
             dataGridView1.ClearSelection();
 
-            labelID.Visible = false;
             txtID.Visible = false;
-            checkBoxAlterar.Visible = false;
-            btnReset.Visible = false;
-
             txtNome.Enabled = true;
             txtEmail.Enabled = true;
-            btnIncluir.Enabled = true;
-            btnAlterar.Enabled = false;
-            btnExcluir.Enabled = false;
 
+            btnIncluir.Text = "Salvar";
+            btnIncluir.Enabled = true;
+
+            btnExcluir.Enabled = false;
+            btnReset.Visible = false;
+
+            checkBoxAlterar.Visible = false;
             checkBoxAlterar.Checked = false;
 
+            txtNome.Focus();
+
+        }
+
+        private bool verifica_campos()
+        {
+            bool campoPreenchido = false;
+            if (!(txtNome.Text.Equals("")))
+            {
+                if (!(txtEmail.Text.Equals("")))
+                {
+                    if (txtEmail.Text.Contains("@"))
+                    {
+
+                        campoPreenchido = true;
+                        return campoPreenchido;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Email fornecido não é válido.", "Formulário", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return campoPreenchido;
+                    }
+                }
+                else
+                {
+                    txtEmail.Focus();
+                }
+            }
+            else
+            {
+                txtNome.Focus();
+            }
+            MessageBox.Show("Campo Vazio!", "Formulário", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            return false;
         }
         public void carregartabela()
         {
             dataGridView1.DataSource = bll.selecionar();
         }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            dto.Nome = txtNome.Text;
-            dto.Email = txtEmail.Text;
-            if (bll.inserir(dto)) {
-                carregartabela();
-                resetacampos();
-                MessageBox.Show("Cadastro realizado com sucesso.");
-            };
-            
-            
-        }
-
-        private void btnAlterar_Click(object sender, EventArgs e)
-        {
-            dto.Id = Convert.ToInt32(txtID.Text);
-            dto.Nome = txtNome.Text;
-            dto.Email = txtEmail.Text;
-            if (bll.alterar(dto))
+            if (verifica_campos())
             {
-                checkBoxAlterar.Checked = false;
-                carregartabela();
-                MessageBox.Show("Alteração realizada.","Alteração",MessageBoxButtons.OK,MessageBoxIcon.Information,MessageBoxDefaultButton.Button2);
+                if (btnIncluir.Text.Equals("Salvar"))
+                {
+                    dto.Nome = txtNome.Text;
+                    dto.Email = txtEmail.Text;
+                    if (bll.inserir(dto))
+                    {
+                        carregartabela();
+                        
+                        MessageBox.Show("Cadastro realizado com sucesso.");
+                    };
+
+                }
+                else
+                {
+                    dto.Id = Convert.ToInt32(txtID.Text);
+                    dto.Nome = txtNome.Text;
+                    dto.Email = txtEmail.Text;
+                    if (bll.alterar(dto))
+                    {
+                        checkBoxAlterar.Checked = false;
+                        carregartabela();
+                        MessageBox.Show("Alteração realizada.", "Alteração", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                resetacampos();
             }
+
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            
-            DialogResult confirmar = MessageBox.Show("Você quer realmente apagar esse dado?", "Confirmação", MessageBoxButtons.YesNo,MessageBoxIcon.Warning,MessageBoxDefaultButton.Button2); ;
+
+            DialogResult confirmar = MessageBox.Show("Você quer realmente apagar esse dado?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2); ;
             if (confirmar == DialogResult.Yes)
             {
                 dto.Id = Convert.ToInt32(txtID.Text);
@@ -107,16 +144,16 @@ namespace Projeto3Camadas
                 txtNome.Text = row.Cells["nome"].Value.ToString();
                 txtEmail.Text = row.Cells["email"].Value.ToString();
 
+                txtID.Visible = true;
                 txtNome.Enabled = false;
                 txtEmail.Enabled = false;
-                btnIncluir.Enabled = false;
-
-                btnExcluir.Enabled = true;
-
+                
                 checkBoxAlterar.Visible = true;
                 btnReset.Visible = true;
-                labelID.Visible = true;
-                txtID.Visible = true;
+
+                btnIncluir.Text = "Alterar";
+                btnIncluir.Enabled = false;
+                btnExcluir.Enabled = true;
             }
             else
             {
@@ -126,31 +163,33 @@ namespace Projeto3Camadas
 
         }
 
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            resetacampos();
-        }
-
         private void checkBoxAlterar_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxAlterar.Checked == true)
             {
-                btnAlterar.Enabled = true;
                 txtNome.Enabled = true;
                 txtEmail.Enabled = true;
+                btnExcluir.Enabled = false;
+                btnIncluir.Enabled = true;
             }
             else
             {
-                btnAlterar.Enabled = false;
                 txtNome.Enabled = false;
                 txtEmail.Enabled = false;
+                btnExcluir.Enabled = true;
+                btnIncluir.Enabled = false;
             }
+        }
+
+        private void txtPesquisarID_TextChanged(object sender, EventArgs e)
+        {
+            btnReset.Visible = true;
+            dataGridView1.DataSource = bll.pesquisa_cliente(txtPesquisarID.Text);
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            resetacampos();
         }
     }
 }

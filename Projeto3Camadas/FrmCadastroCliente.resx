@@ -120,21 +120,28 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>99, 19</value>
   </metadata>
+  <metadata name="id_cliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Nome.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="id_cliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Nome.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>99, 19</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnReset.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAYtJREFUSEvtVMtKw1AQzaqCIv6IoKgVxe/IyjQ3nTzurZBvyA+ouCpVrPQnBD/B
-        tbjuRsG1C+sDX2duJyC2SSNU6KIHhpCTM3du5uXMMfvYj+N6EJozRbrvk3nC81GRuYEdB3G8ITJHheaL
-        TV4nI0mSRZ90D/aRO4+xdwRsu25WyzlxL0eapgt+aK7FaRCQPiRKthB0hS2IW3X8QQf2ajVkLkVbLYAf
-        6q443qmotSn0CBqU7EJznx9eKQDn3KaF9MBr6jWhC4HLbKtQv1QOgEKeWzGKKNQI8sPGmUiKgYP7LOQ8
-        CzWC34f+NJEUw7YihFxMoaaLfw/AA8UBuC2Fmi5UZC44APe+UBOBunXYpxGaE6GKgZbbQ5o+4TAom4Ec
-        uNAOhvLZtnZ0sC50OZCmHt+IB61sFpr4hjl4YC0CnAo9GXYP5asCA8czwW3LhSeiZb61inQb3+2qQJAr
-        z/OWxL0aUruPdLds2SGVb9AcuVlWE7e/Y7g6MN0YwGEL23V9y39FZFZFNsfMwnG+AcajCEPssAeGAAAA
-        AElFTkSuQmCC
-</value>
-  </data>
+  <metadata name="txtPesquisarID.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>
