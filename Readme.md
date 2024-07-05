@@ -2,4 +2,4 @@ Projeto feito para uma avaliação na faculdade. O projeto envolve a criação, 
 Para cadastrar um cliente, o usuário deve preencher todos os campos e aperta no botão salvar.
 Para editar o registro, o usuário deve selecionar na linha desse registro na tabela e clicar em "alterar dados"(checkbox) para liberar os campos para edição, e logo após, aperta no botão alterar.
 Para excluir um registro, selecione ele na tabela, e então clique no botão com ícone de lixeira.
-Obs: tem um botão reset para deixar o aplicativo no formato incial no qual foi inicializado.
+Obs: Contém o arquivo SQL contendo o script para a criação das tabelas e procedures utilizadas no código.
